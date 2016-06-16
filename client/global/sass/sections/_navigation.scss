@@ -19,13 +19,9 @@ $topbar-height:  80px;
   @include large-font;
   color: rgba(250, 150, 0, 0.9);
   font-weight: 700;
-}
-
-.nav-otherlogo {
-  display: inline-block;
-  @include largest-font;
-  color: rgba(250, 150, 0, 0.9);
-  font-weight: 700;
+  &.other {
+    @include largest-font;
+  }
 }
 
 .topbar {

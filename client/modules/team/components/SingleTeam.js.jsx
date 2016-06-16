@@ -5,11 +5,8 @@ import { Link } from 'react-router';
 
 // import actions
 import { singleActions } from '../actions';
-import { listActions } from '../actions';
 import { listActions as playerListActions } from '../../player/actions';
-import { singleActions as playerSingleActions } from '../../player/actions';
 import PlayerListItem from '../../player/components/PlayerListItem.js.jsx';
-import { listActions as userListActions } from '../../user/actions';
 import { singleActions as userSingleActions } from '../../user/actions';
 
 class SingleTeam extends Base {
@@ -26,11 +23,8 @@ class SingleTeam extends Base {
     // const populate = false;
     const { dispatch, params } = this.props;
     dispatch(singleActions.fetchSingleTeamById(params.teamId, populate ))
-    console.log(params.teamId);
     dispatch(playerListActions.fetchList())
-    dispatch(listActions.fetchList())
-    dispatch(userListActions.fetchList())
-    //dispatch(singleActions.fetchSingleTeamByCoach(params.userid, populate))
+    dispatch(singleActions.fetchSingleTeamByCoach(params.userid, populate))
     //console.log(params.userid);
   }
 
@@ -62,7 +56,7 @@ class SingleTeam extends Base {
                 Team Roster:
                 <br/>
               </p>
-                <ul id="players">
+                <ul className="builder-list">
                   {players.map((player, i) => {
                     {player ? player.team : "0"}
                     if(item._id == players[i].team) {

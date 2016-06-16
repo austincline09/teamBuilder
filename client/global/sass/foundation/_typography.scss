@@ -22,19 +22,15 @@ a {
 ul {
   margin: 0px;
   padding: 0px;
+  &.builder-list {
+    li {
+      display: inline-block;
+      padding: 0px;
+      vertical-align: middle;
+    }
+  }
 }
 
-ul#teams li {
-  display:inline-block;
-  padding: 0px;
-  vertical-align: middle;
-}
-
-ul#players li {
-  display: inline-block;
-  padding: 0px;
-  vertical-align: middle; 
-}
 
 h1 {
   @include largest-font;

@@ -41,7 +41,7 @@ class PlayerList extends Base {
           {isEmpty
             ? (list.isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
             : <div style={{ opacity: list.isFetching ? 0.5 : 1 }}>
-              <ul id="players">
+              <ul className="builder-list">
                 {list.items.map((item, i) =>
                   <PlayerListItem key={i} player={item} />
                 )}

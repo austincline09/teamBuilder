@@ -3,13 +3,11 @@ import Base from "../../../global/components/BaseComponent.js.jsx";
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
+import PlayerListItem from '../../player/components/PlayerListItem.js.jsx';
+
 // import actions
 import { singleActions } from '../actions';
-import { listActions } from '../actions';
 import { listActions as playerListActions } from '../../player/actions';
-import { singleActions as playerSingleActions } from '../../player/actions';
-import PlayerListItem from '../../player/components/PlayerListItem.js.jsx';
-import { listActions as userListActions } from '../../user/actions';
 import { singleActions as userSingleActions } from '../../user/actions';
 
 
@@ -28,8 +26,6 @@ class MyTeam extends Base {
     const { dispatch, params } = this.props;
     dispatch(singleActions.fetchSingleTeamByCoach(params.userid))
     dispatch(playerListActions.fetchList())
-    dispatch(listActions.fetchList())
-    dispatch(userListActions.fetchList())
 
   }
 
@@ -60,7 +56,7 @@ class MyTeam extends Base {
                 Team Roster:
                 <br/>
               </p>
-                <ul id="players">
+                <ul className="builder-list">
                   {players.map((player, i) => {
                     {player ? player.team : "0"}
                     if(item._id == players[i].team) {

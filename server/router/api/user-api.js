@@ -83,7 +83,9 @@ module.exports = function(router, requireLogin, requireRole) {
     } else {
       //remove session object
       req.logout();
-      res.end();
+      console.log(req.user);
+      //res.end();
+      res.send(200);
     }
   });
 
@@ -92,7 +94,7 @@ module.exports = function(router, requireLogin, requireRole) {
   router.post('/api/users'         , users.create);
 
   // - Read
-  router.get('/api/users'          , requireRole('admin'), users.list); // must be an 'admin' to see the list of users
+  router.get('/api/users'          , users.list); // must be an 'admin' to see the list of users
 
   // - Update
   router.put('/api/users/:userId'      , requireLogin(), users.update);

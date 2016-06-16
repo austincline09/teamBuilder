@@ -72,3 +72,5 @@ module.exports = function(router) {
 routeFilenames.push('user-api');
 routeFilenames.push('post-api');
 routeFilenames.push('product-api');
+routeFilenames.push('team-api');
+routeFilenames.push('player-api');

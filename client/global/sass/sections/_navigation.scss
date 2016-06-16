@@ -17,8 +17,11 @@ $topbar-height:  80px;
 .nav-logo {
   display: inline-block;
   @include large-font;
-  color: #fff;
+  color: rgba(250, 150, 0, 0.9);
   font-weight: 700;
+  &.other {
+    @include largest-font;
+  }
 }
 
 .topbar {

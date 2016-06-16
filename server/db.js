@@ -18,3 +18,5 @@ module.exports = function(config) {
 // new Mongoose models are defined below
 var Post = require('./models/Post');
 var Product = require('./models/Product');
+var Team = require('./models/Team');
+var Player = require('./models/Player');

@@ -44,12 +44,12 @@
     background-image: url(/img/hero-1.png);
     background-size: cover;
     background-position: center center;
-    background-color: $hero-bg-color;
+    background-color: #333333;
     padding-top: $topbar-height;
     text-align: center;
     color: rgba(255,255,255,0.8);
     .cool-thing {
-      color: $success;
+      color: #009900;
     }
     h1{
       margin: 0;

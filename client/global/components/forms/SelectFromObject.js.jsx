@@ -26,7 +26,7 @@ class SelectFromObject extends Base{
   constructor(props, context) {
     super(props);
     this.state = {
-      selected: this.props.selected || null
+      selected: this.props.selected || ''
     }
     this._bind('_handleSelectChange');
   }
@@ -35,15 +35,16 @@ class SelectFromObject extends Base{
   componentWillReceiveProps(nextProps) {
     // console.log("SelectFromObject props");
     // console.log(nextProps);
-    nextProps.selected ? this.setState({selected: nextProps.selected}) : null;
+    nextProps.selected ? this.setState({selected: nextProps.selected}) : '';
   }
 
   _handleSelectChange(e) {
+    console.log(e);
     console.log("handle select change in select");
     this.setState({
       selected: e.target.value
     });
-    this.props.change(e.target.value);
+    this.props.change(e);
   }
 
   render() {
@@ -61,7 +62,7 @@ class SelectFromObject extends Base{
     }
     return(
       <div className="select-from-object">
-        <select onChange={this._handleSelectChange} value={this.state.selected}>
+        <select onChange={this._handleSelectChange} value={this.state.selected} name={this.props.name}>
           {options}
         </select>
       </div>
@@ -76,6 +77,7 @@ SelectFromObject.propTypes = {
   , change: React.PropTypes.func.isRequired // should this be required??
   , selected: React.PropTypes.string
   , placeholder: React.PropTypes.string
+  , name: React.PropTypes.string.isRequired
 }
 
 export default SelectFromObject;

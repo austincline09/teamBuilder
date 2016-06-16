@@ -1,6 +1,39 @@
 import fetch from 'isomorphic-fetch'
 import { browserHistory } from 'react-router';
 
+export const REQUEST_SINGLE_USER = "REQUEST_SINGLE_USER";
+function requestSingleUser(id) {
+  return {
+    type: REQUEST_SINGLE_USER
+    , id
+
+  }
+}
+
+export const RECEIVE_SINGLE_USER = "RECEIVE_SINGLE_USER";
+function receiveSingleUser(json) {
+  console.log("received", json.user._id);
+  return {
+    type: RECEIVE_SINGLE_USER
+    , id: json.user._id
+    , user: json.user
+    , success: json.success
+    , error: json.message
+    , receivedAt: Date.now()
+  }
+}
+
+export function fetchSingleUserById(userId) {
+  //console.log(userId);
+  return dispatch => {
+    dispatch(requestSingleUser(userId))
+    return fetch(`/api/users/${userId}`)
+      .then(response => response.json())
+      .then(json => dispatch(receiveSingleUser(json)))
+  }
+}
+
+
 export const REQUEST_LOGIN = "REQUEST_LOGIN"
 function requestLogin(username) {
   return {
@@ -94,11 +127,15 @@ function requestLogout() {
 }
 
 export const RECEIVE_LOGOUT = "RECEIVE_LOGOUT"
-function requestLogout(json) {
+function receiveLogout(json) {
+  console.log("Am I getting called?");
   return {
     type: RECEIVE_LOGOUT
-    , status: json.status
+    , user: json.user
+    , success: json.success
     , error: json.message
+    //, status: json ? json.status : "success"
+    //, error: json ? json.message : "success"
   }
 }
 
@@ -111,9 +148,19 @@ export function sendLogout() {
         'Accept': 'application/json'
         , 'Content-Type': 'application/json'
       }
+      , credentials: 'same-origin'
       , body: null
     })
-    .then(res => res.json())
+    .then((res) => {
+      console.log(res);
+      return res;
+    })
+    // .then(res => res.json())
+    .then((json) => {
+      console.log("DEBUG 2");
+      console.log(json);
+      return json;
+    })
     .then(json => dispatch(receiveLogout(json)))
     .then((json) => {
       //if they hit this route, where should they redirect to?

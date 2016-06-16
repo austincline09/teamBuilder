@@ -22,6 +22,7 @@ exports.list = function(req, res) {
         });
       }
     });
+    
   } else {
     logger.debug("listing users");
     User.find({}).exec(function(err, users) {
@@ -126,7 +127,7 @@ exports.changePassword = function(req, res) {
     res.send({success: false, message: "New passwords do not match"});
   }
   //do additional validation here (must contain special character, etc)
-  else if(req.param('newPass') == "") { 
+  else if(req.param('newPass') == "") {
     res.send({success: false, message: "Invalid New Password"});
   }
   var projection = {

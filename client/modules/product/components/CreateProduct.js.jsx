@@ -12,6 +12,8 @@ import ProductForm from './ProductForm.js.jsx';
 class CreateProduct extends Base {
   constructor(props) {
     super(props);
+    console.log("Below is this.props");
+    console.log(this.props);
     this.state = this.props;
     this._bind(
       '_handleFormChange'

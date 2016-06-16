@@ -5,7 +5,7 @@
 
 $brand-primary:               #FD605B;
 $brand-secondary:             #352D39;
-$brand-accent:                #ff4081;
+$brand-accent:                rgba(250,150,0,0.9);
 
 // UI Palette
 // ••••••••••••••••••••••••••••••••••••••••••••••••••
@@ -13,13 +13,13 @@ $bg-color:                    $blue-grey-9;
 $grey:                        $grey-5;
 $white:                       $white-2;
 
-$text-color:                  rgba(0,0,0,0.6);
+$text-color:                  rgba(250,150,0,0.9);
 $text-light:                  rgba(255,255,255,.9);
 $accent-color:                $brand-accent;
 
-$link-color:                  #ff4081;
+$link-color:                  #009900;
 $link-visited-color:          $link-color;
-$link-hover-color:            lighten($link-color, 20);
+$link-hover-color:            lighten($link-color, 10);
 
 $divider-color:               rgba(0,0,0,0.15);
 
@@ -30,7 +30,7 @@ $shadow-color:                rgba(0,0,0,0.15);
 // Component colors
 // ••••••••••••••••••••••••••••••••••••••••••••••••••
 $sidebar-bg-color:               $blue-grey-5;
-$topbar-bg-color:                $blue-grey-3;
+$topbar-bg-color:                #333333;
 // $topbar-text-color:
 
 $hero-bg-color:                 $blue-grey-1;

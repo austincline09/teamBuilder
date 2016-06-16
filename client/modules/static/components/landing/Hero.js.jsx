@@ -63,7 +63,7 @@ class Hero extends React.Component{
     return (
       <div className="hero main">
         <div className="yt-container">
-          <h1>This is Yote</h1>
+          <h1>This is <span className="nav-logo other">Yote</span></h1>
           <h2>
             <TheCoolThing />
           </h2>

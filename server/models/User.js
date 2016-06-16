@@ -126,13 +126,19 @@ User.schema.path('roles').validate(function(roles){
 //user model methods
 function createDefaults() {
   User.find({}).exec(function(err, users) {
-    if(users.length === 0) {
+    //if(users.length === 0) {
       var password_salt, password_hash;
       password_salt = User.createPasswordSalt();
       password_hash = User.hashPassword(password_salt, 'admin');
       User.create({firstName:'Admin', lastName:'Admin', username:'admin@admin.com', password_salt: password_salt, password_hash: password_hash, roles: ['admin']});
       logger.info("created initial default user w/ username 'admin' and password 'admin'");
-    }
+      User.create({firstName:'Johnny', lastName:'Cash', username:'johnnycash@admin.com', password_salt: password_salt, password_hash: password_hash, roles: ['admin']});
+      User.create({firstName:'Joe', lastName:'Maddon', username:'joemaddon@admin.com', password_salt: password_salt, password_hash: password_hash, roles: ['admin']});
+      User.create({firstName:'Mike', lastName:'Ditka', username:'mikeditka@admin.com', password_salt: password_salt, password_hash: password_hash, roles: ['admin']});
+      User.create({firstName:'Phil', lastName:'Jackson', username:'philjackson@admin.com', password_salt: password_salt, password_hash: password_hash, roles: ['admin']});
+      User.create({firstName:'Joel', lastName:'Quenville', username:'joelquenville@admin.com', password_salt: password_salt, password_hash: password_hash, roles: ['admin']});
+      User.create({firstName:'Steve', lastName:'Kerr', username:'stevekerr@admin.com', password_salt: password_salt, password_hash: password_hash, roles: ['admin']});
+    //}
   });
 };
 

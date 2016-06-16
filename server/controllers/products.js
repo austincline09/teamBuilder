@@ -1,13 +1,13 @@
 /***********************************************************
 
-Sever-side controllers for Product.  
+Sever-side controllers for Product.
 
-By default, Yote's server controllers are dynamic relative 
+By default, Yote's server controllers are dynamic relative
 to their models -- i.e. if you add fields to the Product
 model, the create and update controllers below will respect
 the new schema.
 
-NOTE: make sure to account for any model changes 
+NOTE: make sure to account for any model changes
 on the client
 
 ***********************************************************/
@@ -73,7 +73,7 @@ exports.search = function(req, res) {
       if(err || !products) {
         res.send({ success: false, message: err });
       } else {
-        res.send({ 
+        res.send({
           success: true
           , products: products
           , pagination: {
